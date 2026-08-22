@@ -46,7 +46,21 @@ public class MediCareHospitall {
     }
     private static void handleOption(int option){
         
-        
+        switch (option){
+            case 1-> registerPatient();
+            case 2-> searchPatient();
+            case 3-> updatePatient();
+            case 4-> deletePatient();
+            case 5-> displayPatients();
+            case 6-> ward.displayWardLayout();
+            case 7-> allocateBed();
+            case 8-> releaseBed();
+            case 9-> printReport();
+            case 10-> sortPatientsMenu();
+            case 11-> System.out.println("Exiting system. Goodbye!");
+            default -> System.out.println("Invalid option selected.");         
+
+        }
     }
 }
             
