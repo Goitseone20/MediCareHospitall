@@ -18,5 +18,14 @@ public class Patient {
   private String medicalCondition;
   private String patientCategory;
   
-  public Patient()
+  public Patient(String patientID, String firstName, String lastName, int age, String gender, String medicalCondition, String patientCategory){
+  
+      this.patientID=patientID;
+      this.firstName=firstName;
+      this.lastName=lastName;
+      this.age=age;
+      this.gender=gender;
+      this.medicalCondition=medicalCondition;
+      this.patientCategory=patientCategory;
+  }
 }
