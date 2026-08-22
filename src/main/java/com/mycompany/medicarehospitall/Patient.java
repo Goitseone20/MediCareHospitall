@@ -28,4 +28,24 @@ public class Patient {
       this.medicalCondition=medicalCondition;
       this.patientCategory=patientCategory;
   }
+  public String getPatientID(){return patientID;}
+  public void setpatientID(String patientID){this.patientID=patientID; }
+  
+  public String getfirstName(){return firstName; }
+  public void setfirstName(String firstName){this.firstName=firstName; }
+  
+  public String getlastName(){return lastName; }
+  public void setlastName(String lastName){this.lastName=lastName; }
+  
+  public int getage(){return age; }
+  public void setage(int age){this.age=age; }
+  
+  public String getgender(){return gender; }
+  public void setgender(String gender){this.gender=gender; }
+  
+  public String getmedicalCondition(){return medicalCondition; }
+  public void setmedicalCondition(String medicalCondition){this.medicalCondition=medicalCondition; }
+  
+  public String getpatientCategory(){return patientCategory; }
+  public void setpatientCategory(String patientCategory){this.patientCategory=patientCategory; }
 }
