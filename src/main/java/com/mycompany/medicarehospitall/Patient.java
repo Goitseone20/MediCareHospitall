@@ -48,4 +48,9 @@ public class Patient {
   
   public String getpatientCategory(){return patientCategory; }
   public void setpatientCategory(String patientCategory){this.patientCategory=patientCategory; }
+  
+  public String printDetails(){
+      return "ID"+patientID +"name"+firstName +"surname"+lastName +"age"+age +"gender"+gender +
+       "medicalcondition"+medicalCondition +"patientCategory"+patientCategory;
+  }
 }
