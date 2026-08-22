@@ -125,5 +125,24 @@ public class MediCareHospitall {
     public static void deletePatient(){
         System.out.print("Enter Patient ID to delete: ");
         String id = scan.nextLine();
+        if(ward.deletePatient(id)){
+            System.out.println("Patient removed successfully.");
+        }else{
+            System.out.println("Patient not found");
+        }
+    }
+    private static void displayPatients(){
+        
+        if(ward.getPatients().isEmpty()){
+            System.out.println("No registered patients.");
+            return;
+        }
+        for(Patient p: ward.getPatients()){
+            System.out.println(p.printDetails());
+        }
+    }
+    private static void allocateBed(){
+        
+        
     }
     }
