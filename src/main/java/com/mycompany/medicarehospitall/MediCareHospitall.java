@@ -33,9 +33,10 @@ public class MediCareHospitall {
             System.out.println("11. Exit");
             System.out.print("Select an option 1-11 ");
             
-            option=scan.nextInt();
+            
             
             if(scan.hasNextInt()){
+                option=scan.nextInt();
                 handleOption(option);
             }else{
                 System.out.println("Invalid input! Please enter a number.");
@@ -64,27 +65,33 @@ public class MediCareHospitall {
     }
     private static void registerPatient(){
      
-        System.out.println("Enter patient ID");
-        String id=scan.nextLine();
+       System.out.print("Enter Patient ID: ");
+        String ID = scan.nextLine();
+        System.out.print("Enter First Name: ");
+        String fname = scan.nextLine();
+        System.out.print("Enter Last Name: ");
+        String lname = scan.nextLine();
+        System.out.print("Enter Age: ");
+        int age = Integer.parseInt(scan.nextLine());
+        System.out.print("Enter Gender: ");
+        String gender = scan.nextLine();
+        System.out.print("Enter Medical Condition: ");
+        String condition = scan.nextLine();
+
+        System.out.println("Select Category: 1. Inpatient  2. Outpatient  3. Emergency");
+        int Choice = Integer.parseInt(scan.nextLine());
+      
         
-        System.out.println("Enter first name");
-        String name=scan.nextLine();
-        
-        System.out.println("Enter last name");
-        String surname=scan.nextLine();
-        
-        System.out.println("Enter age");
-        int age=scan.nextInt();
-        
-        System.out.println("Enter gender");
-        String gender=scan.nextLine();
-        
-        System.out.println("Enter medical condition");
-        String condition=scan.nextLine();
-        
-        System.out.println("Select Category: 1.Inpatient 2.Outpatient 3.Emergency");
-        int choice=Integer.parseInt(scan.nextLine());
         Patient patient = null;
+        String patientCategory = null;
+        if (Choice == 1) {
+           
+            patient = new InPatient( ID, fname, lname, age, gender, condition, patientCategory);
+        } else if (Choice == 2) {
+            patient = new InPatient(ID, fname, lname, age, gender, condition, patientCategory);
+        } else {
+            patient = new InPatient(ID, fname, lname, age, gender, condition, patientCategory);
+        }
         
         if(ward.registerPatient(patient)){
             System.out.println("Patient registered successfully");
@@ -142,7 +149,39 @@ public class MediCareHospitall {
         }
     }
     private static void allocateBed(){
+       
+        System.out.print("Enter Inpatient ID: ");
+        String id = scan.nextLine();
+        System.out.print("Enter Bed Number to allocate (e.g., B01): ");
+        String bed = scan.nextLine();
         
+        if(ward.allocateBed(bed, bed)){
+            System.out.println("Bed " + bed + " successfully allocated.");
+        }else{
+            System.out.println("Allocation failed: Invalid ID, patient is not an Inpatient, or Bed is already occupied.");
+        }
+    }
+    private static void releaseBed(){
         
+        System.out.print("Enter Bed Number to release (e.g., B01): ");
+        String bed = scan.nextLine();
+        
+        if(ward.releaseBed(bed)){
+            System.out.println("Bed " + bed + " is now released.");
+        }else{
+            System.out.println("Bed releasing failed.");
+        }
     }
+    private static void printReport(){
+        
+        System.out.println("===========REPORT=============");
+        System.out.println("Total patients"+ ward.getPatients().size());
+        System.out.println("Available beds"+ ward.getAvailableBeds());
+        System.out.println("Occupied beds"+ ward.getOccupiedBeds());
+        System.out.println("Total occupied beds"+ ward.getOccupiedBeds());
+        System.out.println("Ward occupancy percentage"+ String.format("%.2f", ward.calculateOccupancyPercentage()));
     }
+    private static void sortPatientsMenu(){
+    }
+    
+}

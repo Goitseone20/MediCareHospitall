@@ -24,6 +24,7 @@ public class wardManagement {
         beds = new String[4][5];
     }
     public boolean registerPatient(Patient patient) {
+        
         if (findPatientbyId(patient.getPatientID())  !=null) {
             return false; // Duplicate ID prevented
         }
